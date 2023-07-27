@@ -1,5 +1,5 @@
-const baseURL = "http://localhost:3000/api/v1"
-// const baseURL = "https://plannerapi.onrender.com/api/v1"
+// const baseURL = "http://localhost:3000/api/v1"
+const baseURL = "https://plannerapi.onrender.com/api/v1"
 
 export const fetchRegister = async (requestBody) => {
     const requestOptions = {
@@ -64,8 +64,6 @@ export const FetchUserData = async (uid, auth) => {
       return null; // Return null or an empty object/array to indicate failure
     }
   }
-
-
 
 
 export const FetchCreateTask = async (uid, auth, category_id, requestBody) => {
