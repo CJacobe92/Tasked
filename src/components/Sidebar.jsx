@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { UserContext } from '../reducers/UserContext'
 import HomeIcon from '@mui/icons-material/Home';
-import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import AssignmentLateTwoToneIcon from '@mui/icons-material/AssignmentLateTwoTone';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -39,21 +38,14 @@ const Sidebar = () => {
     }
   return (
     <div className={`bg-gray-900 text-white flex flex-col items-center justify-between ${state.active_menu ? 'w-56' : 'w-12'}`}>
-        <div className='h-[10vh] w-full border-b border-white border-opacity-30 flex items-center justify-between '>
-            {
-                state.active_menu ?
-                <>
-                    <div className='flex flex-row justify-between w-full px-4'>
-                        <h1 className='m-1 text-xl font-bold'>Tasked!</h1>
-                        <AssignmentLateTwoToneIcon className='m-1' style={{fontSize: '2rem'}}/>
-                    </div>
-
-
-                </> :
-                <>
-                    <AssignmentLateTwoToneIcon className='m-1' style={{fontSize: '2rem'}}/>
-                </>
-            }
+      <div className='h-[10vh] w-full border-b border-white border-opacity-30 flex items-center justify-between '>
+        {state.active_menu ?
+            <div className='flex flex-row justify-between w-full px-4'>
+              <h1 className='m-1 text-xl font-bold'>Tasked!</h1>
+              <AssignmentLateTwoToneIcon className='m-1' style={{fontSize: '2rem'}}/>
+            </div> :
+            <AssignmentLateTwoToneIcon className='m-1' style={{fontSize: '2rem'}}/>
+        }
         </div>
         <div className='flex flex-col justify-between items-center h-[90vh] w-full'>
             <div className='flex flex-col w-full mt-6'>
@@ -62,10 +54,7 @@ const Sidebar = () => {
                     <p className={`mx-4 my-1 ${activeMenuClass}`}>Timeline</p>
                 </Link>
             </div>
-
             <div className='w-full m-2'>
-
-
                 <div className='flex flex-row items-center w-full my-4 justify-evenly'>
                     <div className='flex items-center justify-center w-10 h-10 font-semibold border border-white'>{initials}</div>
                     <p className={`text-sm ${activeMenuClass}`}>{formattedUsername}</p>

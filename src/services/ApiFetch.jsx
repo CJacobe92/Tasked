@@ -1,5 +1,5 @@
-// const baseURL = "http://localhost:3000/api/v1"
-const baseURL = "https://plannerapi.onrender.com/api/v1"
+const baseURL = "http://localhost:3000/api/v1"
+// const baseURL = "https://plannerapi.onrender.com/api/v1"
 
 export const fetchRegister = async (requestBody) => {
     const requestOptions = {
@@ -65,27 +65,7 @@ export const FetchUserData = async (uid, auth) => {
     }
   }
 
-  export const FetchCreateCategory = async (uid, auth, requestBody) => {
-    const requestOptions = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `${auth}`
-      },
-      body: JSON.stringify({"category": requestBody})
-    }
 
-    const request = await fetch(`${baseURL}/users/${uid}/categories`, requestOptions);
-
-    const response = await request.json()
-
-    const category = {
-      id: response.data.id,
-      name: response.data.name
-    }
-
-    return category
-}
 
 
 export const FetchCreateTask = async (uid, auth, category_id, requestBody) => {
@@ -102,8 +82,7 @@ export const FetchCreateTask = async (uid, auth, category_id, requestBody) => {
 
 }
 
-
-  export const FetchEditTasks = async (uid, auth, category_id, task_id, requestBody) => {
+  export const FetchEditTask = async (uid, auth, category_id, task_id, requestBody) => {
       const requestOptions = {
         method: 'PATCH',
         headers: {
@@ -118,7 +97,7 @@ export const FetchCreateTask = async (uid, auth, category_id, requestBody) => {
       console.log(request)
   }
 
-  export const FetchDiscardTasks = async (uid, auth, category_id, task_id) => {
+  export const FetchDiscardTask = async (uid, auth, category_id, task_id) => {
     const requestOptions = {
       method: 'DELETE',
       headers: {
@@ -140,4 +119,41 @@ export const FetchDeleteCategory = async (uid, auth, category_id) => {
   }
 
   await fetch(`${baseURL}/users/${uid}/categories/${category_id}`, requestOptions);
+}
+
+export const FetchEditCategory = async (uid, auth, category_id, requestBody) => {
+  const requestOptions = {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `${auth}`
+    },
+    body: JSON.stringify({"category": requestBody})
+  }
+
+  const request = await fetch(`${baseURL}/users/${uid}/categories/${category_id}`, requestOptions);
+
+  console.log(request)
+}
+
+export const FetchCreateCategory = async (uid, auth, requestBody) => {
+  const requestOptions = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `${auth}`
+    },
+    body: JSON.stringify({"category": requestBody})
+  }
+
+  const request = await fetch(`${baseURL}/users/${uid}/categories`, requestOptions);
+
+  const response = await request.json()
+
+  const category = {
+    id: response.data.id,
+    name: response.data.name
+  }
+
+  return category
 }
