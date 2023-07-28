@@ -11,7 +11,8 @@ const initialState = {
     email: null,
     categories: [],
     tasks: [],
-    refetch: false
+    refetch: false,
+    loading: false,
 }
 
 const reducer = (state, action) => {
@@ -45,6 +46,8 @@ const reducer = (state, action) => {
             return {...state, refetch: true};
         case 'RESET_REFETCH':
             return {...state, refetch: false};
+        case 'SET_LOADING':
+            return {...state, loading: action.payload}
         default:
             return state;
     }
@@ -68,9 +71,9 @@ export const UserContextProvider = ({children}) => {
 
     useEffect(() => {
         const getUserData = async() => {
-            const data = await FetchUserData(state.uid, state.auth)
 
-            if(data && state.auth){
+            if(state.auth){
+                const data = await FetchUserData(state.uid, state.auth)
                 dispatch({type: 'SET_EMAIL', payload: data.email})
                 dispatch({type: 'SET_CATEGORIES', payload: data.categories})
 

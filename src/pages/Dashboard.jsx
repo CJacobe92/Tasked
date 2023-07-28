@@ -1,6 +1,5 @@
 import React from 'react'
 import Sidebar from '../components/Sidebar'
-import Navbar from '../components/Navbar'
 import { Navigate, Outlet } from 'react-router-dom'
 import usePrivateRoute from '../hooks/usePrivateRoute'
 
