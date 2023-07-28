@@ -4,6 +4,8 @@ import { UserContext } from '../reducers/UserContext'
 import { fetchLogin } from '../services/ApiFetch'
 import { useNavigate } from 'react-router-dom'
 import loadingGif from '../assets/loading.gif'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
@@ -38,9 +40,19 @@ const Login = () => {
         dispatch({ type: 'SET_UID', payload: response?.uid });
         dispatch({ type: 'SET_AUTH', payload: response?.auth });
 
-        navigate('/');
-
         dispatch({ type: 'SET_LOADING', payload: false });
+
+        toast.success(`Welcome back!`, {
+          position: 'top-right',
+          autoClose: 5000, // Close the toast after 3 seconds
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+
+        navigate('/');
       } catch (error) {
         console.error('Error logging in:', error.message);
         dispatch({ type: 'SET_LOADING', payload: false });

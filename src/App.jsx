@@ -7,6 +7,8 @@ import Dashboard from './pages/Dashboard'
 import Timeline from './components/Timeline'
 import PasswordReset from './pages/PasswordReset'
 import PasswordUpdate from './pages/PasswordUpdate'
+import { ToastContainer, toast } from 'react-toastify';
+
 
 const App = () => {
   return (
@@ -21,6 +23,7 @@ const App = () => {
             <Route path={'/'} element={<Timeline />}/>
           </Route>
         </Routes>
+        <ToastContainer />
       </UserContextProvider>
     </>
   )
