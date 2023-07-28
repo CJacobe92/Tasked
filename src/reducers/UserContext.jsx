@@ -69,22 +69,7 @@ export const UserContextProvider = ({children}) => {
 
     // Fetch data once on the private route Dashboard
 
-    useEffect(() => {
-        const getUserData = async() => {
 
-            if(state.auth){
-                const data = await FetchUserData(state.uid, state.auth)
-                dispatch({type: 'SET_EMAIL', payload: data.email})
-                dispatch({type: 'SET_CATEGORIES', payload: data.categories})
-
-                const tasksArray = data.categories.map((category) => category.tasks)
-                dispatch({type: 'SET_TASKS', payload: tasksArray})
-                dispatch({type: 'RESET_REFETCH'})
-            }
-        }
-
-        getUserData()
-    }, [state.auth, state.refetch, dispatch])
 
     return(
         <UserContext.Provider value={{state, dispatch}}>
