@@ -59,17 +59,11 @@ export const UserContextProvider = ({children}) => {
 
     const [state, dispatch ] = useReducer(reducer, initialState)
 
-    // Store token to localStorage
-
     useEffect(() => {
         const storeAuth = { uid: state.uid, auth: state.auth, active_menu: state.active_menu, selected: state.selected}
         localStorage.setItem('root', JSON.stringify(storeAuth))
 
     }, [state.auth, state.uid, state.active_menu, state.selected])
-
-    // Fetch data once on the private route Dashboard
-
-
 
     return(
         <UserContext.Provider value={{state, dispatch}}>
