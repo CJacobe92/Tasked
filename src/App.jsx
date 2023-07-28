@@ -17,7 +17,7 @@ const App = () => {
         <Routes>
           <Route path={'/login'} element={<Login />}/>
           <Route path={'/register'}element={<Register />}/>
-          <Route path={'/password_reset'} element={<PasswordUpdate />}/>
+          <Route path={'/api/v1/*'} element={<PasswordUpdate />}/>
           <Route path={'/reset'} element={<PasswordReset />} />
           <Route element={<Dashboard />}>
             <Route path={'/'} element={<Timeline />}/>
