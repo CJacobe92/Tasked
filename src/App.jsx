@@ -5,7 +5,8 @@ import Login from './pages/Login'
 import { UserContextProvider } from './reducers/UserContext'
 import Dashboard from './pages/Dashboard'
 import Timeline from './components/Timeline'
-import New from './components/New'
+import PasswordReset from './pages/PasswordReset'
+import PasswordUpdate from './pages/PasswordUpdate'
 
 const App = () => {
   return (
@@ -14,6 +15,8 @@ const App = () => {
         <Routes>
           <Route path={'/login'} element={<Login />}/>
           <Route path={'/register'}element={<Register />}/>
+          <Route path={'/api/v1/*'} element={<PasswordUpdate />}/>
+          <Route path={'/reset'} element={<PasswordReset />} />
           <Route element={<Dashboard />}>
             <Route path={'/'} element={<Timeline />}/>
           </Route>
