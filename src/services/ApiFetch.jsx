@@ -155,27 +155,13 @@ export const FetchCreateCategory = async (uid, auth, requestBody) => {
 
   return category
 }
-
-export const FetchResetPassword = async (requestBody) => {
-  const requestOptions = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({"reset": requestBody})
-  }
-
-   await fetch(`${baseURL}/password_reset`, requestOptions)
-}
-
-
- export const FetchUpdatePassword = async (resetToken, requestBody) => {
+ export const FetchPasswordReset = async (resetToken, requestBody) => {
   const requestOptions = {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({"reset": requestBody})
+    body: JSON.stringify(requestBody)
   }
 
    await fetch(`${baseURL}/password_reset/${resetToken}`, requestOptions)
