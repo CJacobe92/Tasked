@@ -32,10 +32,10 @@ const LoginForm = ({handleChange, handleSubmit}) => {
                 onChange={handleChange}/>
             </div>
             <div className='w-full my-2'>
-                <button className='w-full text-xs font-bold text-left text-orange-700'>Forgot your password? </button>
+                <Link to={'/reset'} className='w-full text-xs font-bold text-left text-orange-700'>Forgot your password? </Link>
             </div>
             <div className='w-full mt-2 mb-4'>
-                <button type='submit' className='w-full p-2 text-sm font-semibold text-white bg-orange-500 rounded-sm'>Sign in</button>
+                <button type='submit' className='w-full p-2 text-sm font-semibold text-white bg-orange-700 rounded-sm'>Sign in</button>
             </div>
             <div className='w-full'>
                 <p className='mb-4 text-xs text-center text-gray-600'>By signing in you agree with tasked privacy terms and conditions.</p>

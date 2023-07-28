@@ -43,7 +43,7 @@ const RegisterForm = ({handleChange, handleSubmit}) => {
       </div>
 
       <div className='w-full mt-2 mb-4'>
-        <button type='submit' className='w-full p-2 text-sm font-semibold text-white bg-orange-500 rounded-sm'>Sign up</button>
+        <button type='submit' className='w-full p-2 text-sm font-semibold text-white bg-orange-700 rounded-sm'>Sign up</button>
       </div>
       <p className='mb-4 text-xs text-center text-gray-600'>By signing up you agree with tasked privacy terms and conditions.</p>
     </form>
