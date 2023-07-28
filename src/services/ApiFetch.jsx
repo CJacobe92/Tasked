@@ -1,5 +1,5 @@
-// const baseURL = "http://localhost:3000/api/v1"
-const baseURL = "https://plannerapi.onrender.com/api/v1"
+const baseURL = "http://localhost:3000/api/v1"
+// const baseURL = "https://plannerapi.onrender.com/api/v1"
 
 export const fetchRegister = async (requestBody) => {
     const requestOptions = {
